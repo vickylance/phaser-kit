@@ -1,40 +1,45 @@
+import Phaser from "phaser";
 import Images from "../../assets/*.png";
-import Phaser from 'phaser';
 
 class PlayGame extends Phaser.Scene {
   constructor() {
     super({ key: "PlayGame" });
   }
 
-  init(data) {
-  }
+  // tslint:disable-next-line:no-empty
+  public init(data) {}
 
-  preload() {
+  public preload() {
     // load images
-    this.load.image("ship", Images["ship"]);
+    this.load.image("ship", Images.ship);
   }
 
-  create(data) {
+  public create(data) {
     // render the ship
-    this.ship = this.add.sprite(this.game.config.width/2, this.game.config.height/2, "ship");
+    this.ship = this.add.sprite(
+      this.game.config.width / 2,
+      this.game.config.height / 2,
+      "ship"
+    );
   }
 
-  update(time, delta) {
-  }
+  // tslint:disable-next-line:no-empty
+  public update(time, delta) {}
 }
 
-window.onload = function() {
+window.onload = () => {
   const config: GameConfig = {
-    width: 320,
     height: 480,
+    width: 320,
     zoom: 2,
+    // tslint:disable-next-line:object-literal-sort-keys
     type: Phaser.AUTO,
     physics: {
-      default: 'arcade'
-    }
+      default: "arcade"
+    },
     scene: [PlayGame]
   };
-  new Phaser.Game(config);
+  const game = new Phaser.Game(config);
 };
 
 // This is for preventing re-run multiple scenes
