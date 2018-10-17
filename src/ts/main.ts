@@ -1,7 +1,7 @@
 import Images from "../../assets/*.png";
-import { Scene, Game, GameObjects } from 'phaser';
+import Phaser from 'phaser';
 
-class PlayGame extends Scene {
+class PlayGame extends Phaser.Scene {
   constructor() {
     super({ key: "PlayGame" });
   }
@@ -34,7 +34,7 @@ window.onload = function() {
     }
     scene: [PlayGame]
   };
-  new Game(config);
+  new Phaser.Game(config);
 };
 
 // This is for preventing re-run multiple scenes
