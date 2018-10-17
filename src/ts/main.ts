@@ -1,5 +1,5 @@
 import Images from "../../assets/*.png";
-import { Scene, Game } from 'phaser';
+import { Scene, Game, GameObjects } from 'phaser';
 
 class PlayGame extends Scene {
   constructor() {
@@ -36,3 +36,10 @@ window.onload = function() {
   };
   new Game(config);
 };
+
+// This is for preventing re-run multiple scenes
+if (module.hot) {
+  module.hot.dispose(() => {
+    window.location.reload();
+  });
+}
